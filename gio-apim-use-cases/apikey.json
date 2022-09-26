@@ -1,0 +1,95 @@
+{
+  "name": "Perf Test API",
+  "crossId": "b8d04c51-793a-4d46-904c-51793a9d46fc",
+  "version": "1.2.3",
+  "execution_mode": "v3",
+  "description": "Perf Test API",
+  "visibility": "PRIVATE",
+  "gravitee": "2.0.0",
+  "flow_mode": "DEFAULT",
+  "flows": [],
+  "resources": [],
+  "properties": [],
+  "plans": [
+    {
+      "id": "e4dce045-ea11-4649-9ce0-45ea114649ad",
+      "crossId": "3be1533e-a5fc-4c97-a153-3ea5fcdc9779",
+      "name": "APIkey",
+      "description": "APIkey",
+      "validation": "AUTO",
+      "security": "API_KEY",
+      "securityDefinition": "{}",
+      "type": "API",
+      "status": "PUBLISHED",
+      "api": "abf06e2b-ee33-408e-b06e-2bee33508ea9",
+      "order": 1,
+      "characteristics": [],
+      "created_at": 1664207007809,
+      "updated_at": 1664207019399,
+      "published_at": 1664207010972,
+      "paths": {},
+      "flows": [
+        {
+          "name": "",
+          "path-operator": {
+            "path": "/",
+            "operator": "STARTS_WITH"
+          },
+          "condition": "",
+          "consumers": [],
+          "methods": [],
+          "pre": [],
+          "post": [],
+          "enabled": true
+        }
+      ],
+      "comment_required": false
+    }
+  ],
+  "id": "abf06e2b-ee33-408e-b06e-2bee33508ea9",
+  "path_mappings": [],
+  "proxy": {
+    "virtual_hosts": [
+      {
+        "path": "/perf-test"
+      }
+    ],
+    "strip_context_path": false,
+    "preserve_host": false,
+    "groups": [
+      {
+        "name": "default-group",
+        "endpoints": [
+          {
+            "backup": false,
+            "inherit": true,
+            "name": "default",
+            "weight": 1,
+            "type": "http",
+            "target": "https://httpbin.org/anything"
+          }
+        ],
+        "load_balancing": {
+          "type": "ROUND_ROBIN"
+        },
+        "http": {
+          "connectTimeout": 5000,
+          "idleTimeout": 60000,
+          "keepAlive": true,
+          "readTimeout": 10000,
+          "pipelining": false,
+          "maxConcurrentConnections": 100,
+          "useCompression": true,
+          "followRedirects": false
+        }
+      }
+    ]
+  },
+  "response_templates": {},
+  "primaryOwner": {
+    "id": "2a61e3c0-27bc-4fe4-a1e3-c027bc6fe4f7",
+    "email": "dorian.blanc@graviteesource.com",
+    "displayName": "Dorian Blanc",
+    "type": "USER"
+  }
+}
